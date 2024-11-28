@@ -7,7 +7,8 @@ const app = express();
 app.use(express.json());
 
 // Database Connection
-mongoose.connect("mongodb+srv://gangeswaran375:school@cluster0.veogg.mongodb.net/").then(() => console.log("Connected to MongoDB"))
+mongoose.connect("mongodb+srv://gangeswaran375:school@cluster0.veogg.mongodb.net/",{    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+}).then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
 // School Schema and Model
